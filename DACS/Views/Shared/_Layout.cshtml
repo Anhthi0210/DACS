@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="~/DACS1.styles.css" asp-append-version="true" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/JavaScript.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,7 +19,7 @@
     <div class="mogi-navbar">
         <div class="mogi-navbar-container">
             <div class="mogi-navbar-logo">
-                <a href="/"><img src="" width="100" height="31" alt="Mogi.vn" title="Tìm kiếm bất động sản, nhà đất cần bán và cho thuê tại Việt Nam"></a>
+                <a href="/"><img src="~/Content/images/logo.png" width="100" height="31" alt="Mogi.vn" title="Tìm kiếm bất động sản, nhà đất cần bán và cho thuê tại Việt Nam"></a>
             </div>
 
             <div class="navbar-menu">
@@ -27,7 +29,7 @@
                 <a class="" href="/hoi-dap" gtm-event="link" gtm-cat="menu" gtm-act="top-menu">Hỏi đáp</a>
                 @*<a class="" href="/tim-moi-gioi" gtm-event="link" gtm-cat="menu" gtm-act="top-menu">Môi giới</a>
                     <a class="" href="/du-an" gtm-event="link" gtm-cat="menu" gtm-act="top-menu">Dự án</a>*@
-                <!-- ngIf: !Profile.isAuth() -->
+                <a class="hidden-xs ng-scope" ng-if="!Profile.isAuth()" id="menu-signin" href="/dang-nhap" gtm-event="link" gtm-cat="menu" gtm-act="user-signin">Đăng nhập</a>
             </div>
 
             <div class="navbar-searchbox ng-scope" ng-controller="searchBarController">
@@ -254,109 +256,110 @@
             </div>
         </div>
     </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-<footer class="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 my-4">
-                    @*<div class="mb-4">
-                            <img src="static/img/logo-light.svg" title="" alt="">
-                        </div>*@
-                    <div class="text-white-65 mb-4" id="logo">
-                        <img src="~/Content/images/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 my-4">
+                        @*<div class="mb-4">
+                                <img src="static/img/logo-light.svg" title="" alt="">
+                            </div>*@
+                        <div class="text-white-65 mb-4" id="logo">
+                            <img src="~/Content/images/logo.png" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">THÔNG TIN</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li>
-                            <a href="/DanhSachSanPham/Index">Trang chủ</a>
-                        </li>
-                        <li>
-                            <a href="/DanhSachSanPham/Index">Sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="#">Tin tức</a>
-                        </li>
-                        <li>
-                            <a href="#">Liên hệ</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">HỖ TRỢ</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li>
-                            <a href="#">Hướng dẫn mua hàng</a>
-                        </li>
-                        <li>
-                            <a href="#">Đổi trả và bảo hành</a>
-                        </li>
-                        <li>
-                            <a href="#">Giao nhận và thanh toán</a>
-                        </li>
-                        <li>
-                            <a href="#">Đăng ký thành viên</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">LIÊN HỆ</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">THÔNG TIN</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li>
+                                <a href="/DanhSachSanPham/Index">Trang chủ</a>
+                            </li>
+                            <li>
+                                <a href="/DanhSachSanPham/Index">Sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="#">Tin tức</a>
+                            </li>
+                            <li>
+                                <a href="#">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">HỖ TRỢ</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li>
+                                <a href="#">Hướng dẫn mua hàng</a>
+                            </li>
+                            <li>
+                                <a href="#">Đổi trả và bảo hành</a>
+                            </li>
+                            <li>
+                                <a href="#">Giao nhận và thanh toán</a>
+                            </li>
+                            <li>
+                                <a href="#">Đăng ký thành viên</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">LIÊN HỆ</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li>
+                                <a href="#">
+                                    <img src="~/Content/images/locationicon.png" />
+                                    Q.Bình Thạnh, TP.HCM
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="~/Content/images/phoneicon.png" />
+                                    0931870526
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:MeMeow@gmail.com">
+                                    <img src="~/Content/images/mailicon.png" />
+                                    MOJOIN@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 my-4">
+                        <h5 class="text-white h6 mb-4">FANPAGE</h5>
+                        <div class="nav footer-socila-icon">
+                            <a href="https://www.facebook.com">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
                             <a href="#">
-                                <img src="~/Content/images/locationicon.png" />
-                                Q.Bình Thạnh, TP.HCM
+                                <i class="fab fa-twitter"></i>
                             </a>
-                        </li>
-                        <li>
                             <a href="#">
-                                <img src="~/Content/images/phoneicon.png" />
-                                0931870526
+                                <i class="fab fa-instagram"></i>
                             </a>
-                        </li>
-                        <li>
-                            <a href="mailto:MeMeow@gmail.com">
-                                <img src="~/Content/images/mailicon.png" />
-                                MeMeow@gmail.com
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
                             </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 my-4">
-                    <h5 class="text-white h6 mb-4">FANPAGE</h5>
-                    <div class="nav footer-socila-icon">
-                        <a href="https://www.facebook.com">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom footer-border-top light py-3">
-        <div class="container text-center" style="color: #ffffff">
-            <p class="m-0">© 2023 copyright <a href="#" class="text-reset">MeMeow</a></p>
+        <div class="footer-bottom footer-border-top light py-3">
+            <div class="container text-center" style="color: #ffffff">
+                <p class="m-0">© 2023 copyright <a href="#" class="text-reset">MeMeow</a></p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
 </html>
